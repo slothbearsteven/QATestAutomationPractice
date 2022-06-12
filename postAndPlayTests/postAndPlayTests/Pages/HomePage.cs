@@ -8,11 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace postAndPlayTests
+namespace postAndPlayTests.Pages
 {
-    public class Test
+    internal class HomePage
     {
+        private IWebDriver driver;
 
-
+        public HomePage(IWebDriver webDriver)
+        {
+            this.driver = webDriver;
+            PageFactory.InitElements(driver, this);
+        }
     }
 }
