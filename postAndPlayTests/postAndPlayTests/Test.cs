@@ -7,12 +7,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
+using postAndPlayTests.Pages;
 
 namespace postAndPlayTests
 {
     public class Test
     {
+        IWebDriver driver;
 
+        [SetUp]
+
+        public void SetUp()
+        {
+         driver = new ChromeDriver();
+        }
+        [Test]
+        public void SendMessageTest()
+        {
+            LoginPage login = new LoginPage(driver);
+            login.GoToPage();
+            login.Login();
+
+
+        }
+        [TearDown]
+        public void TearDown()
+        {
+          driver.Close();
+        }
 
     }
 }
